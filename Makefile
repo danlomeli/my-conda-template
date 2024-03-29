@@ -4,7 +4,7 @@ SHELL := /bin/bash
 
 .PHONY: 
 
-initialize: install-python-3.9 conda install-dev setup 
+init: install-python-3.9 conda install-dev setup 
 
 install-python-3.9:
 	@echo "Installing Python 3.9 using pyenv"
