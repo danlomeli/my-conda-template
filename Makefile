@@ -16,7 +16,7 @@ install-python-3.9:
 	@echo "Python 3.9 installed successfully"
 
 conda:
-	$(HOME)anaconda3/bin/python -m conda create --yes --prefix .conda python=3.9
+	$(HOME)/anaconda3/bin/python -m conda create --yes --prefix .conda python=3.9
 
 install-dev:
 	$(CONDA_PATH)/pip install -r requirements-dev.txt
