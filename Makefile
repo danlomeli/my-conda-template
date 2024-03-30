@@ -21,6 +21,7 @@ conda:
 install-dev:
 	$(CONDA_PATH)/pip install -r requirements-dev.txt
 	@echo "activate conda environment by opening the project in vs code"
+	@echo "athen run: make setup"
 
 setup:
 	$(CONDA_PATH)/poetry install --no-root
