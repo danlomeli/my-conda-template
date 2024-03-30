@@ -1,10 +1,14 @@
-.PHONY: initialize setup activate install-prod install-dev install-python-3.9 tree cat format
+.PHONY: initialize setup activate install-prod install-dev install-python-3.9 tree cat format hooks
 
 SHELL := /bin/bash
+CONDA_PATH := ./.conda/bin
 
-.PHONY: 
+.PHONY:
 
-init: install-python-3.9 conda install-dev setup 
+echo:
+	@echo $(PATH)
+
+init: install-python-3.9 conda install-dev setup hooks
 
 install-python-3.9:
 	@echo "Installing Python 3.9 using pyenv"
@@ -15,19 +19,22 @@ conda:
 	conda create --prefix ./.conda python=3.9
 
 install-dev:
-	./.conda/bin/pip install -r requirements-dev.txt
+	$(CONDA_PATH)/pip install -r requirements-dev.txt
 
 setup:
-	./.conda/bin/poetry install --no-root
+	$(CONDA_PATH)/poetry install --no-root
+
+hooks:
+	$(CONDA_PATH)/pre-commit install
 
 format:
-	black .
+	$(CONDA_PATH)/black .
 
 lint:
-	flake8 src tests
+	$(CONDA_PATH)/flake8 src tests
 
 test:
-	pytest tests/
+	$(CONDA_PATH)/pytest tests/
 
 tree:
 	scripts/tree.sh

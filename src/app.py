@@ -10,7 +10,7 @@ Usage:
 
 Options:
     --debug   Enable debug mode for detailed logging and troubleshooting.
-    --port    Specify the port number on which the application should run (default: 8080).
+    --port    Specify the port number on which the application run (default: 8080).
 """
 
 # Rest of the code...
