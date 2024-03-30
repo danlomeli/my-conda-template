@@ -51,7 +51,7 @@ check_compatibility() {
   fi
 }
 
-# Loop through each package and check compatibility
+# Loop through each package and check python version compatibility
 for package in "${packages[@]}"
 do
   echo -n "Checking compatibility for $package: "

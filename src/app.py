@@ -15,6 +15,7 @@ Options:
 
 # Rest of the code...
 
+
 def embark_on_cosmic_journey():
     """
     Embark on a cosmic journey through the multiverse.

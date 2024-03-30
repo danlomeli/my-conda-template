@@ -21,7 +21,13 @@ setup:
 	./.conda/bin/poetry install --no-root
 
 format:
-	prettier --write 'src/**/*.{py}'
+	black .
+
+lint:
+	flake8 src tests
+
+test:
+	pytest tests/
 
 tree:
 	scripts/tree.sh

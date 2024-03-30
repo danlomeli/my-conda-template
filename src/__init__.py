@@ -4,6 +4,7 @@ from prefect import Flow
 
 # Import any necessary modules or packages here
 
+
 def create_flow():
     # Define your Prefect flow here
     with Flow("my_flow") as flow:
@@ -11,5 +12,6 @@ def create_flow():
         pass
 
     return flow
+
 
 # You can add any additional initialization code specific to the src module.

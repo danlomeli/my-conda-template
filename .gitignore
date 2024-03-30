@@ -65,3 +65,6 @@ wandb/
 
 # Conda Env Files
 .conda/
+
+# Only -f md files to be included
+*.md

@@ -12,6 +12,4 @@ fi
 exclude_pattern=$(grep -v '^#' $ignorefile | grep -v '^$' | tr '\n' '|' | sed 's/|$//')
 
 # Run the tree command with the exclude pattern
-echo $exclude_pattern
-
 tree -a -I "$exclude_pattern"
