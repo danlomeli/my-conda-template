@@ -24,11 +24,7 @@ format:
 	prettier --write 'src/**/*.{py}'
 
 tree:
-	tree -a -I "poetry.lock|.git|__pycache__|*.pyc|*.pyo|*.pyd|.ipynb_checkpoints|profile_default|ipython_config.py|.pytest_cache|.mypy_cache|.flake8|.idea|.vscode|.DS_Store|*.csv|*.xlsx|*.json|*.txt|*.pkl|*.npy|*.npz|*.h5|*.hdf5|checkpoints|logs|*.pt|*.pth|*.ckpt|*.pb|mlruns|wandb|.env|.conda"
+	scripts/tree.sh
 
 cat:
-	@shopt -s nullglob dotglob; \
-	find src/ -type f -print0 | while IFS= read -r -d '' file; do \
-		echo -e "\\n***********\\nFilename: $$file\\nContent:\\n"; \
-		cat "$$file"; \
-	done
+	scripts/cat.sh
