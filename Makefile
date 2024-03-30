@@ -8,7 +8,7 @@ CONDA_PATH := ./.conda/bin
 echo:
 	@echo $(PATH)
 
-init: install-python-3.9 conda install-dev setup hooks
+init: install-python-3.9 conda install-dev
 
 install-python-3.9:
 	@echo "Installing Python 3.9 using pyenv"
@@ -20,6 +20,7 @@ conda:
 
 install-dev:
 	$(CONDA_PATH)/pip install -r requirements-dev.txt
+	@echo "activate conda environment by opening the project in vs code"
 
 setup:
 	$(CONDA_PATH)/poetry install --no-root
