@@ -8,12 +8,7 @@ CONDA_PATH := ./.conda/bin
 echo:
 	@echo $(PATH)
 
-init: install-python-3.9 conda install-dev
-
-install-python-3.9:
-	@echo "Installing Python 3.9 using pyenv"
-	pyenv install --skip-existing 3.9.19
-	@echo "Python 3.9 installed successfully"
+init: conda install-dev
 
 conda:
 	$(HOME)/anaconda3/bin/python -m conda create --yes --prefix .conda python=3.9
