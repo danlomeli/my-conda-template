@@ -24,6 +24,7 @@ install-dev:
 	@echo "athen run: make setup"
 
 setup:
+	$(CONDA_PATH)/poetry lock --no-update
 	$(CONDA_PATH)/poetry install --no-root
 
 hooks:
