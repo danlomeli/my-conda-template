@@ -14,6 +14,7 @@ conda:
 	$(HOME)/anaconda3/bin/python -m conda create --yes --prefix .conda python=3.9
 
 install-dev:
+	python -m pip install --upgrade pip
 	$(CONDA_PATH)/pip install -r requirements-dev.txt
 	@echo "activate conda environment by opening the project in vs code"
 	@echo "athen run: make setup"
