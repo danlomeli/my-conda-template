@@ -40,3 +40,9 @@ tree:
 
 cat:
 	scripts/cat.sh
+
+clean:
+# 	artifacts
+
+clean-all: clean
+	rm -rf .conda
