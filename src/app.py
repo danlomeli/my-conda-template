@@ -10,11 +10,11 @@ Usage:
 
 Options:
     --debug   Enable debug mode for detailed logging and troubleshooting.
-    --port    Specify the port number on which the application run (default: 8080).
+    --port    Specify the port number on which the application runs (default: 8080).
 """
 
-# Rest of the code...
-
+import argparse
+import logging
 
 def embark_on_cosmic_journey():
     """
@@ -27,5 +27,25 @@ def embark_on_cosmic_journey():
     Returns:
         None
     """
+    logging.info("Starting the cosmic journey...")
     # Code to traverse the multiverse and reshape reality
-    pass
+    # Example implementation
+    print("Traveling through the multiverse...")
+    # Add more functionality as needed
+
+def main():
+    parser = argparse.ArgumentParser(description="Run the application.")
+    parser.add_argument("--debug", action="store_true", help="Enable debug mode for detailed logging.")
+    parser.add_argument("--port", type=int, default=8080, help="Specify the port number on which the application runs.")
+    args = parser.parse_args()
+
+    if args.debug:
+        logging.basicConfig(level=logging.DEBUG)
+    else:
+        logging.basicConfig(level=logging.INFO)
+
+    logging.info(f"Starting the application on port {args.port}")
+    embark_on_cosmic_journey()
+
+if __name__ == "__main__":
+    main()

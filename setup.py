@@ -7,5 +7,11 @@ setup(
     install_requires=[
         "numpy",
         "pandas",
+        # Add other dependencies here
     ],
+    entry_points={
+        "console_scripts": [
+            "my-tool = src.cli:main",
+        ],
+    },
 )

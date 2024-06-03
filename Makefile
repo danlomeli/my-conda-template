@@ -41,6 +41,10 @@ tree:
 cat:
 	scripts/cat.sh
 
+install:
+	$(CONDA_PATH)/poetry build
+	$(CONDA_PATH)/poetry install
+
 clean:
 # 	artifacts
 
