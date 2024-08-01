@@ -1,15 +1,23 @@
 #!/bin/bash
 
-ignorefile=.gitignore
+ignorefile=.treeignore
+dirpath="${1:-.}"
 
-# Check if .gitignore file exists
-if [ ! -f "$ignorefile" ]; then
-  echo "Error: .gitignore file not found in the current directory."
-  exit 1
+echo "Debug: Using directory: $dirpath"
+echo "Debug: Looking for ignore file: $dirpath/$ignorefile"
+
+if [ ! -f "$dirpath/$ignorefile" ]; then
+    echo "Error: $ignorefile file not found in the directory $dirpath."
+    exit 1
 fi
 
-# Read the .gitignore file and generate the exclude pattern
-exclude_pattern=$(grep -v '^#' "$ignorefile" | grep -v '^$' | sed 's:/$::' | tr '\n' '|' | sed 's/|$//')
+# Read ignore patterns from .treeignore and process them
+ignore_patterns=$(grep -v '^#' "$dirpath/$ignorefile" | grep -v '^$' | sed 's/\*\*\///' | tr '\n' '|' | sed 's/|$//')
 
-# Run the tree command with the exclude pattern
-tree -a -I "$exclude_pattern"
+echo "Debug: Ignore patterns: $ignore_patterns"
+
+echo "Debug: Running tree command:"
+echo "tree -a -I \"$ignore_patterns\" \"$dirpath\""
+
+# Run tree command with ignore patterns
+tree -a -I "$ignore_patterns" "$dirpath"
