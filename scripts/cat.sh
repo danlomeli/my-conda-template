@@ -2,6 +2,12 @@
 
 ignorefile=.catignore
 
+# Check if WORKDIR is set
+if [ -n "$WORKDIR" ]; then
+    # Change to the WORKDIR directory
+    cd "$WORKDIR" || { echo "Error: Unable to change to directory $WORKDIR"; exit 1; }
+fi
+
 # Check if a directory path is provided as an argument
 if [ "$#" -eq 1 ]; then
     dirpath="$1"
