@@ -1,6 +1,7 @@
 .PHONY: initialize setup activate install-prod install-dev install-python-3.9 tree cat format hooks
 
-SHELL := /bin/bash
+CONDA_HOME := $(HOME)/anaconda3
+CONDA_BIN := $(CONDA_HOME)/bin
 CONDA_PATH := ./.conda/bin
 
 .PHONY:
