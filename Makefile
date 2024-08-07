@@ -3,6 +3,7 @@
 CONDA_HOME := $(HOME)/anaconda3
 CONDA_BIN := $(CONDA_HOME)/bin
 CONDA_PATH := ./.conda/bin
+ENV_PREFIX := $(CURDIR)/.conda
 
 .PHONY:
 
@@ -11,11 +12,10 @@ echo:
 
 init: conda install-dev
 
-conda:
+conda-dev:
 	$(CONDA_BIN)/conda create --yes --prefix $(ENV_PREFIX) python=3.9 conda
 
 install-dev:
-	python -m pip install --upgrade pip
 	$(CONDA_PATH)/conda env update --prefix $(ENV_PREFIX) -f environment.yml
 
 setup:
