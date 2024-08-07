@@ -15,9 +15,7 @@ conda:
 
 install-dev:
 	python -m pip install --upgrade pip
-	$(CONDA_PATH)/pip install -r requirements-dev.txt
-	@echo "activate conda environment by opening the project in vs code"
-	@echo "athen run: make setup"
+	$(CONDA_PATH)/conda env update --prefix $(ENV_PREFIX) -f environment.yml
 
 setup:
 	$(CONDA_PATH)/poetry lock --no-update
