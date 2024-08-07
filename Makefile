@@ -1,16 +1,14 @@
-.PHONY: initialize setup activate install-prod install-dev install-python-3.9 tree cat format hooks
+.PHONY: initialize setup activate install-prod install-dev install-python-3.9 tree cat format hooks echo init conda-dev install-dev setup hooks format lint test install clean clean-all
 
 CONDA_HOME := $(HOME)/anaconda3
 CONDA_BIN := $(CONDA_HOME)/bin
 CONDA_PATH := ./.conda/bin
 ENV_PREFIX := $(CURDIR)/.conda
 
-.PHONY:
-
 echo:
 	@echo $(PATH)
 
-init: conda install-dev
+init: conda-dev install-dev
 
 conda-dev:
 	$(CONDA_BIN)/conda create --yes --prefix $(ENV_PREFIX) python=3.9 conda
@@ -45,7 +43,7 @@ install:
 	$(CONDA_PATH)/poetry install
 
 clean:
-# 	artifacts
+	# Add commands to clean artifacts here
 
 clean-all: clean
 	rm -rf .conda
