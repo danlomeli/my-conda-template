@@ -11,7 +11,7 @@ echo:
 init: conda install-dev
 
 conda:
-	$(HOME)/anaconda3/bin/python -m conda create --yes --prefix .conda python=3.9
+	$(CONDA_BIN)/conda create --yes --prefix $(ENV_PREFIX) python=3.9 conda
 
 install-dev:
 	python -m pip install --upgrade pip
